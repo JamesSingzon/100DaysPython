@@ -23,12 +23,23 @@ screen.addshape(image)
 turtle.shape(image)
 
 def pin_state(state_coor, answer_state):
+    '''Generates the state name on screen and pins to state coordinates.'''
     tim = turtle.Turtle()
     tim.hideturtle()
     tim.pu()
     tim.goto(state_coor)
     tim.write(f"{answer_state}", align="center",font=("Courier",15,"normal"))
 
+def save_score(state_list, data):
+    '''Saves the player's score to a csv.'''
+    states_missed_list = [state for state in data["state"].to_list() if state not in state_list]
+    score_dict = {
+        "player": screen.textinput(title=f"You guessed {len(state_list)}/{len(data)} states correct", prompt="Type your name to save your score.").title(),
+        "score": f"{len(state_list)}/{len(data)}",
+        "states_missed": states_missed_list
+    }
+    with open("Day_25/us-states-game-start/high_scores.txt", mode="a") as scores:
+        scores.write(f"{score_dict}\n")
 
 
 
@@ -40,7 +51,9 @@ while len(state_list) < 50 and game_on:
         state_coor = (int(data[data.state == answer_state]["x"]), int(data[data.state == answer_state]["y"]))
         pin_state(state_coor, answer_state)
 
-    if time.time() - start_time >= 600:
+    if time.time() - start_time >= 600 or answer_state == "Exit":
         game_on = False
+
+save_score(state_list, data)
 
 screen.exitonclick()
