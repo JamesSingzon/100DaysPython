@@ -67,6 +67,6 @@ while True:
                 connection.login(user = MY_EMAIL, password = MY_PASSWORD)
                 connection.sendmail(
                     from_addr = MY_EMAIL, 
-                    to_addrs = "jamessingzon@gmail.com",
+                    to_addrs = "singzonseeds@yahoo.com",
                     msg = f"Subject:Go see ISS!\n\nYour API is telling you the International Space Station is overhead.  Remember, 3rd brightest object in the sky second to the Sun and the Moon.  You have roughly 90 minutes of viewing time - hurry!"
                     )

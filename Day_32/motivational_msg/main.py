@@ -9,7 +9,7 @@ with open(file="Day_32/motivational_msg/quotes.txt") as quotes:
 
 MY_EMAIL = my_email
 MY_PASSWORD = password
-RECEIVER = "michellelarson13@gmail.com"
+RECEIVER = "singzonseeds@yahoo.com"
 
 now = dt.datetime.now().day
 print(now)
