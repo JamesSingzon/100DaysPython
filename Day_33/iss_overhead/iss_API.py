@@ -58,9 +58,11 @@ def is_dark(ptz_sunrise, ptz_sunset, time_now):
     if time_now.hour < ptz_sunrise and time_now.hour < ptz_sunset:
         return True
 
-
+count = 0
 while True:
     time.sleep(60)
+    count += 1
+    print(count)
     if is_overhead(MY_LAT, MY_LNG, iss_latitude, iss_longitude) and is_dark(ptz_sunrise, ptz_sunset, time_now):
         with smtplib.SMTP("smtp.gmail.com", port = 587) as connection:
                 connection.starttls()
