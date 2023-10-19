@@ -1,6 +1,6 @@
 import requests
 from twilio.rest import Client
-from credentials import account_sid, auth_token, phone, spicy_senorita
+from credentials import account_sid, auth_token, phone, spicy_senorita,api_key
 import os
 
 #Environment Variables
@@ -21,7 +21,6 @@ OPW_endpoint = "https://api.openweathermap.org/data/3.0/onecall"
 
 sf_lat = 37.774929
 sf_lng = -122.419418
-api_key = "a0663b2e844c70ce748011e0f9560f3a"
 
 
 parameters = {
